@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, StyleSheet, View, Text, Button } from 'react-native';
+import { SafeAreaView, StyleSheet, View, Text, Button, Image } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
 export default function App() {
@@ -11,7 +11,11 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.row1}>
-        <Text style={styles.heading}> Credit Points Calculator </Text>
+        <Text style={styles.heading}> Welcome to POGS 🥕! </Text>
+        <Image
+        style={styles.image}
+        source={{ uri: "https://i.pinimg.com/564x/52/f4/1d/52f41d9cf5fef52676f823718ff0f604.jpg"}}
+        />
       </View>
       <View style={styles.row2}>
         <Picker
@@ -75,22 +79,28 @@ const styles = StyleSheet.create({
     backgroundColor: '#E3D3E3'
   },
   heading: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginTop: 30
+    fontSize: 32,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 20,
+  },
+  image: {
+    width: "100%",
+    height: undefined,
+    aspectRatio: 16 / 9,
   },
   row1: {
-    marginTop: 20,
+    marginTop: -10,
     alignItems: 'center'
   },
   row2: {
     flexDirection: 'row',
-    marginTop: 10,
+    marginTop: -20,
     justifyContent: 'center'
   },
   row3: {
     flexDirection: 'row',
-    marginTop: 10,
+    marginTop: -40,
     justifyContent: 'center'
   },
   picker1: {
@@ -100,11 +110,11 @@ const styles = StyleSheet.create({
     flex: 1
   },
   buttonContainer: {
-    marginTop: 20,
+    marginTop: 0,
     alignItems: 'center'
   },
   bottomText: {
-    fontSize: 15,
+    fontSize:0,
     textAlign: 'center',
     marginTop: 20
   }
