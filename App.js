@@ -7,7 +7,19 @@ export default function App() {
   const [picker2SelectedValue, setPicker2SelectedValue] = useState("1");
   const [picker3SelectedValue, setPicker3SelectedValue] = useState("val-Artichokes-5");
   const [picker4SelectedValue, setPicker4SelectedValue] = useState("1");
+  const [CalculatedValue, setCalculatedValue] = useState(0);
 
+  const getPrice = (value) => parseInt(value.split('-')[2]);
+
+  const calculateTotal = () => {
+    const price1 = getPrice(picker1SelectedValue);
+    const price2 = getPrice(picker3SelectedValue);
+    const quantity1 = parseInt(picker2SelectedValue);
+    const quantity2 = parseInt(picker4SelectedValue);
+    const total = price1 * quantity1 + price2 * quantity2;
+    setCalculatedValue(total);
+    console.log("Total Cost of Order: $", total);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.row1}>
@@ -66,12 +78,14 @@ export default function App() {
         </Picker>
       </View>
       <View style={styles.buttonContainer}>
-        <Button title="CALCULATE" onPress={() => console.log("Calculate")} />
+        <Button title="CALCULATE" onPress={calculateTotal} />
       </View>
+      <Text style={styles.totalText}> Total Cost: $ {CalculatedValue} </Text>
       <Text style={styles.bottomText}> Jordan Shao, Tony Do, My Linh Do, Ahnaf Ahmed Samin </Text>
     </SafeAreaView>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
